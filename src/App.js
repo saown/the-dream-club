@@ -30,8 +30,10 @@ function App() {
             .then((data)=>{
                 setExercise(data.exercise);
                 setBreakTimes(data.breakTimes);
-            });
+            })
+    },[]);
 
+    useEffect(()=>{
 
         addToListBtn.forEach((item)=>{
             item.addEventListener("click",(data)=>{
@@ -41,6 +43,7 @@ function App() {
 
             })
         })
+
         breakTimeBtn.forEach((item)=>{
             if (item.getAttribute('data-time') === localStorage.getItem('breakTime')){
                 item.classList.add('break-times-active');
@@ -60,7 +63,7 @@ function App() {
 
         })
 
-    },[addToListBtn, breakTimeBtn, exerciseTime]);
+    },[addToListBtn, breakTimeBtn, exerciseTime])
 
     let show = false;
     const showSidebar = () => {
