@@ -1,7 +1,9 @@
 import React from "react";
 
 const SideBar = (props) => {
-    const {breakTimes, exerciseTime, breakTime, notify} = props;
+
+    const {breakTimes, exerciseTime, breakTime, notify, btnHandeler} = props;
+
     return(
         <div>
             <div className="profile-details">
@@ -15,7 +17,7 @@ const SideBar = (props) => {
                 <ul className="break-times">
                     {breakTimes.map((item,index)=>{
                         return(
-                            <li key={index} className="break-time-btn" data-time={item}>{item}s</li>
+                            <li key={index} className="break-time-btn" onClick={() => btnHandeler(item)} data-time={item}>{item}s</li>
                         )
                     })}
                 </ul>

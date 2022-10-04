@@ -1,7 +1,7 @@
 import React from "react";
 
 const MainContent = (props) => {
-    const {exercise,sidebarHandeler} = props;
+    const {exercise,sidebarHandeler, btnHandeler} = props;
     return(
         <div>
             <div className="header bg-primary">
@@ -17,7 +17,7 @@ const MainContent = (props) => {
                                 <h5 className="card-title">{item.title}</h5>
                                 <p className="card-text">{item.description}</p>
                                 <p className="card-text">Time required : <strong>{item.time}s</strong></p>
-                                <button type="button" className="btn btn-primary w-100 add-to-list-btn" data-time={item.time} data-id={item.id}>Add To List</button>
+                                <button type="button" className="btn btn-primary w-100 add-to-list-btn" onClick={() => btnHandeler(item.time)} data-time={item.time} data-id={item.id}>Add To List</button>
                             </div>
                         </div>
                     )

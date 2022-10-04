@@ -3,42 +3,42 @@
     {
       "id": 1,
       "title" : "Lunges",
-      "img": "https://images.pexels.com/photos/8846122/pexels-photo-8846122.jpeg",
+      "img": "./image/pexels-photo-8846122.jpeg",
       "description": "Challenging your balance is an essential part of a well-rounded exercise routine.",
       "time": 250
     },
     {
       "id": 2,
       "title": "Pushups",
-      "img": "https://images.pexels.com/photos/4775186/pexels-photo-4775186.jpeg",
+      "img": "./image/pexels-photo-4775186.jpeg",
       "description": "Drop and give me 20! Pushups are one of the most basic yet effective bodyweight moves.",
       "time": 150
     },
     {
       "id": 3,
       "title": "Squats",
-      "img": "https://images.pexels.com/photos/4662333/pexels-photo-4662333.jpeg",
+      "img": "./image/pexels-photo-4662333.jpeg",
       "description": "Squats increase lower body and core strength, as well as flexibility in your lower back and hips.",
       "time": 100
     },
     {
       "id": 4,
       "title": "Standing overhead dumbbell presses",
-      "img": "https://images.pexels.com/photos/8846572/pexels-photo-8846572.jpeg",
+      "img": "./image/pexels-photo-8846572.jpeg",
       "description": "Compound exercises, which utilize multiple joints and muscles, are perfect for busy bees as they work several parts of your body at once.",
       "time": 300
     },
     {
       "id": 5,
       "title": "Dumbbell rows",
-      "img": "https://images.pexels.com/photos/869243/pexels-photo-869243.jpeg",
+      "img": "./image/pexels-photo-4662333.jpeg",
       "description": "Not only will these make your back look killer in that dress, but dumbbell rows are also another compound exercise.",
       "time": 350
     },
     {
       "id": 6,
       "title": "Side planks",
-      "img": "https://images.pexels.com/photos/3822187/pexels-photo-3822187.jpeg",
+      "img": "./image//pexels-photo-3822187.jpeg",
       "description": "A healthy body requires a strong core at its foundation, so don’t neglect core-specific moves like the side plank.",
       "time": 400
     }

@@ -8,9 +8,6 @@ import "./component/style.css";
 
 function App() {
 
-    const addToListBtn = document.querySelectorAll(".add-to-list-btn");
-    const breakTimeBtn = document.querySelectorAll(".break-time-btn");
-
     const localExerciseTime = (localStorage.getItem("exerciseTimeAdd") === null ? 0 : Number(localStorage.getItem("exerciseTimeAdd")))
     const localBreakTime = (localStorage.getItem("breakTime") === null ? 0 : Number(localStorage.getItem("breakTime")))
 
@@ -33,37 +30,31 @@ function App() {
             })
     },[]);
 
-    useEffect(()=>{
+    document.querySelectorAll('.break-time-btn').forEach((item) => {
+        if (item.getAttribute('data-time') === localStorage.getItem('breakTime')){
+            item.classList.add('break-times-active');
+        }
+    })
 
-        addToListBtn.forEach((item)=>{
-            item.addEventListener("click",(data)=>{
-                let exerciseTimeAdd = Number(data.target.dataset.time) + exerciseTime
-                localStorage.setItem("exerciseTimeAdd", exerciseTimeAdd.toString());
-                setExerciseTime(exerciseTimeAdd)
+    const addToListBtn = (time) => {
+        let newExerciseTime = Number(time) + exerciseTime
+        localStorage.setItem("exerciseTimeAdd", newExerciseTime.toString());
+        setExerciseTime(newExerciseTime);
+    }
 
-            })
+    const breakTimeBtn = (time) => {
+        document.querySelectorAll(".break-time-btn").forEach((item)=>{
+            item.classList.remove('break-times-active')
         })
-
-        breakTimeBtn.forEach((item)=>{
-            if (item.getAttribute('data-time') === localStorage.getItem('breakTime')){
-                item.classList.add('break-times-active');
+        document.querySelectorAll(".break-time-btn").forEach((item)=>{
+            if(Number(item.getAttribute('data-time')) === Number(time)) {
+                item.classList.add('break-times-active')
             }
         })
+        localStorage.setItem("breakTime", time)
+        setBreakTime(time);
+    }
 
-        breakTimeBtn.forEach((item)=>{
-            item.addEventListener("click", (data)=>{
-                let breakTimeA = Number(data.target.dataset.time)
-                breakTimeBtn.forEach((items)=>{
-                    items.classList.remove('break-times-active')
-                })
-                data.target.classList.add("break-times-active");
-                localStorage.setItem("breakTime", breakTimeA.toString())
-                setBreakTime(breakTimeA);
-            })
-
-        })
-
-    },[addToListBtn, breakTimeBtn, exerciseTime])
 
     let show = false;
     const showSidebar = () => {
@@ -87,7 +78,7 @@ function App() {
           <div className="app">
               <div className="main-content">
                   <div><ToastContainer className="mt-5 pt-5"/></div>
-                  <MainContent exercise={exercise} sidebarHandeler={showSidebar}/>
+                  <MainContent exercise={exercise} btnHandeler={addToListBtn} sidebarHandeler={showSidebar}/>
               </div>
               <div className="side-bar">
                   <SideBar
@@ -95,6 +86,7 @@ function App() {
                       exerciseTime={exerciseTime}
                       breakTime={breakTime}
                       notify={notify}
+                      btnHandeler={breakTimeBtn}
                   />
               </div>
           </div>
